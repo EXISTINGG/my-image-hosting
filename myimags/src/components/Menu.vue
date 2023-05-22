@@ -7,8 +7,6 @@
           default-active="/home/image"
           class="menus"
           router
-          @open="handleOpen"
-          @close="handleClose"
           @select="currentIdx"
         >
           <el-menu-item index="/home/image" class="meun-item">
@@ -30,22 +28,13 @@
 import {useImgStore} from '@/store/index'
 const imgStore =  useImgStore()
 
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
 const currentIdx = index => {
-  console.log({index});
   imgStore.ImgList = []
   switch (index) {
     case '/home/favicon':
-      console.log(111);
       imgStore.getImgFile('favicon')
       break;
     case '/home/icon':
-      console.log(222);
       imgStore.getImgFile('icon')
       break;
     default:

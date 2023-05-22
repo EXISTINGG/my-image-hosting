@@ -1,7 +1,7 @@
 <template>
   <div class="img-box" v-for="(item,i) in imgStore.ImgList">
     <el-image class="img" :src="item.url" :key="item.url" fit="scale-down" :title="item.imgName" lazy :preview-src-list="imgStore.imgPreviewList" :initial-index="imgIndex" :infinite="false" @click="previewImg(i)"/>
-    <i><el-icon><CopyDocument /></el-icon></i>
+    <!-- <i><el-icon><CopyDocument /></el-icon></i> -->
     <h6>{{ item.imgName }}</h6>
   </div>
 </template>

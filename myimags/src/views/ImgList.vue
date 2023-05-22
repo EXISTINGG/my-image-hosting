@@ -1,7 +1,17 @@
 <template>
-  <div class="img-box" v-for="(item,i) in imgStore.ImgList">
-    <el-image class="img" :src="item.url" :key="item.url" fit="scale-down" :title="item.imgName" lazy :preview-src-list="imgStore.imgPreviewList" :initial-index="imgIndex" :infinite="false" @click="previewImg(i)"/>
-    <!-- <i><el-icon><CopyDocument /></el-icon></i> -->
+  <div class="img-box" v-for="(item, i) in imgStore.ImgList">
+    <el-image
+      class="img"
+      :src="item.url"
+      :key="item.url"
+      fit="cover"
+      :title="item.imgName"
+      lazy
+      :preview-src-list="imgStore.imgPreviewList"
+      :initial-index="imgIndex"
+      :infinite="false"
+      @click="previewImg(i)"
+    />
     <h6>{{ item.imgName }}</h6>
   </div>
 </template>
@@ -14,7 +24,7 @@ const imgStore = useImgStore()
 
 const imgIndex = ref(0)
 
-const previewImg = i => imgIndex.value = i
+const previewImg = (i) => (imgIndex.value = i)
 </script>
 
 <style lang="scss" scoped>
@@ -28,7 +38,6 @@ const previewImg = i => imgIndex.value = i
   margin: 20px 15px;
   box-sizing: border-box;
 
-
   .img {
     width: 100%;
     height: 100px;
@@ -41,7 +50,6 @@ const previewImg = i => imgIndex.value = i
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
   }
 }
 

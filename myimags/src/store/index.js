@@ -16,7 +16,6 @@ export const useImgStore = defineStore('img', {
 
   actions: {
     getImgFile(type) {
-      console.log(type);
       switch (type) {
         case 'favicon':
           this.faviconFile = import.meta.glob('@/assets/favicon/*') //限制类型'../assets/image/*.{png,jpg,jpeg,svg}'

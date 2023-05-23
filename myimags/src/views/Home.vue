@@ -24,6 +24,7 @@ import Menu from '@/components/Menu.vue'
 import ImgList from './ImgList.vue'
 
 onMounted(() => imgStore.getImgFile())
+
 </script>
 
 <style lang="scss" scoped>

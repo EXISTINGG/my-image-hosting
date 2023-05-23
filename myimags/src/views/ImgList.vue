@@ -12,7 +12,10 @@
       :infinite="false"
       @click="previewImg(i)"
     />
-    <h6>{{ item.imgName }}</h6>
+    <span class="text-box">
+      <h6>{{ item.imgName }}</h6>
+      <i class="copy" @click="copyImgUrl(item.imgName)">复制</i>
+    </span>
   </div>
 </template>
 
@@ -25,6 +28,17 @@ const imgStore = useImgStore()
 const imgIndex = ref(0)
 
 const previewImg = (i) => (imgIndex.value = i)
+const copyImgUrl = async (url) => {
+  try {
+    await navigator.clipboard.writeText(`https://img.hxq-001.top/assets/${url}`)
+    ElMessage({
+      message: '复制成功',
+      type: 'success',
+    })
+  } catch (err) {
+    ElMessage.error('复制失败')
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -43,13 +57,26 @@ const previewImg = (i) => (imgIndex.value = i)
     height: 100px;
   }
 
-  h6 {
+  .text-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 10px;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
+    h6 {
+      flex: 0.8;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .copy {
+      flex: 0.3;
+      color: #409eff;
+      font-size: 1px;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 }
 

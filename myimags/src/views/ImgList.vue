@@ -73,7 +73,7 @@ const copyImgUrl = async (url) => {
     .copy {
       flex: 0.3;
       color: #409eff;
-      font-size: 1px;
+      font-size: 12px;
       text-align: center;
       cursor: pointer;
     }
